@@ -25,7 +25,7 @@ class ParamsCollection
 	 * @access	public
 	 * @return	ParamsCollection
 	 */
-	public static function params()
+	public static function instance()
 	{
 		if (!isset(static::$instance)) {
 			static::$instance = new static();
@@ -36,36 +36,41 @@ class ParamsCollection
 	/**
 	 * Returns if the given key exists
 	 *
+	 * @static
 	 * @access	public
 	 * @param	string	$key		Collection key
 	 * @return	bool
 	 */
-	public function has($key)
+	public static function has($key)
 	{
-		return isset($this->data[$key]);
+		return isset(self::instance()->data[$key]);
 	}
 
 	/**
 	 * Returns the given key value or default
 	 *
+	 * @static
 	 * @access	public
 	 * @param	string	$key		Collection key
 	 * @param	mixed	$default	Default value if none found
 	 * @return	mixed
 	 */
-	public function key($key, $default = null)
+	public static function key($key, $default = null)
 	{
-		return isset($this->data[$key]) ? $this->data[$key] : $default;
+		return isset(self::instance()->data[$key])
+			? self::instance()->data[$key]
+			: $default;
 	}
 
 	/**
-	 * Returns data as debug info
+	 * Returns all values
 	 *
+	 * @static
 	 * @access	public
 	 * @return	array
 	 */
-	public function __debugInfo()
+	public static function all()
 	{
-		return $this->data;
+		return self::instance()->data;
 	}
 }
