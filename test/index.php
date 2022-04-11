@@ -8,16 +8,16 @@ use RequestParams\Get,
 	RequestParams\ApacheHeaders,
 	RequestParams\Post;
 	
-var_dump(Get::params(), Get::params()->key('id'));
+var_dump(Get::all());
 echo '<br/><br/>';
 
-var_dump(Server::params(), Server::params()->key('REQUEST_METHOD'));
+var_dump(Server::key('REQUEST_METHOD'));
 echo '<br/><br/>';
 
-var_dump(JsonBody::params(), JsonBody::params()->key('id'));
+var_dump(JsonBody::key('id'));
 echo '<br/><br/>';
 
-var_dump(ApacheHeaders::params(), ApacheHeaders::params()->key('accept-language'));
+var_dump(ApacheHeaders::key('accept-language'));
 echo '<br/><br/>';
 
-var_dump(Post::params(), Post::params()->key('id'));
+var_dump(Post::key('id'));
