@@ -19,7 +19,8 @@ class JsonBody extends ParamsCollection
 	 */
 	public function __construct()
 	{
-		$this->data = \json_decode(\file_get_contents('php://input'), true);
+		$data = \json_decode(\file_get_contents('php://input'), true);
+		$this->data = $data ?? [];
 	}
 
 	/**

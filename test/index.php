@@ -15,6 +15,7 @@ var_dump(Server::key('REQUEST_METHOD'));
 echo '<br/><br/>';
 
 var_dump(JsonBody::key('id'));
+var_dump(JsonBody::all());
 echo '<br/><br/>';
 
 var_dump(ApacheHeaders::key('accept-language'));
