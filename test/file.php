@@ -6,6 +6,7 @@ use RequestParams\Files, RequestParams\Server;
 
 if (Server::key('REQUEST_METHOD') === 'POST') {
 	var_dump(Files::key('file'));
+	var_dump(Files::has('file'));
 	exit();
 }
 

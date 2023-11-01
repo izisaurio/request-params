@@ -61,11 +61,30 @@ class Files extends ParamsCollection
 	}
 
 	/**
+	 * Overrides the has function to handle files
+	 * 
+	 * @static
+	 * @access	public
+	 * @var		bool
+	 */
+	public static function has($key)
+	{
+		$file = self::instance()->data[$key];
+		if (!\is_array($file) || !isset($file['error'])) {
+			return false;
+		}
+		if (\is_array($file['error'])) {
+			return $file['error'][0] != 4;
+		}
+		return $file['error'] != 4;
+	}
+
+	/**
 	 * Singleton instance
 	 *
 	 * @static
 	 * @access	public
-	 * @var		Post
+	 * @var		Files
 	 */
 	public static $instance;
 }
