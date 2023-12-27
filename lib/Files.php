@@ -69,6 +69,9 @@ class Files extends ParamsCollection
 	 */
 	public static function has($key)
 	{
+		if (!isset(self::instance()->data[$key])) {
+			return false;
+		}
 		$file = self::instance()->data[$key];
 		if (!\is_array($file) || !isset($file['error'])) {
 			return false;

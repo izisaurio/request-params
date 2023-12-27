@@ -22,7 +22,7 @@ if (Server::key('REQUEST_METHOD') === 'POST') {
 </head>
 <body>
 	<form method="post" enctype="multipart/form-data">
-		<input type="file" name="file" />
+		<!--<input type="file" name="file" />-->
 		<input type="submit" value="Send" />
 	</form>
 </body>
